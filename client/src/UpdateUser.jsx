@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios"
+import axios from 'axios'
 
 function UpdateUser() {
   const {id} = useParams()
@@ -19,11 +19,11 @@ function UpdateUser() {
     })
     
     .catch(err => console.log(err))
-  } ,[])
+  }, [])
 
   const Update = (e) =>{
     e.preventDefault();
-    axios.put("http://localhost:3001/updateUser"+id,{name,email,age})
+    axios.put("http://localhost:3001/updateUser/"+id,{name,email,age})
     .then(result => {
       console.log(result)
       navigate('/')
@@ -40,7 +40,7 @@ function UpdateUser() {
             <label htmlFor="">Name</label>
             <input
               type="text"
-              placeholder="Enter Name"
+              placeholder='Enter Name'
               className="form-control"
             value={name} onChange={(e)=>setName(e.target.value)}/>
           </div>
@@ -48,7 +48,7 @@ function UpdateUser() {
             <label htmlFor="">Email</label>
             <input
               type="email"
-              placeholder="Enter Email"
+              placeholder='Enter Email'
               className="form-control"
             value={email} onChange={(e)=>setEmail(e.target.value)}/>
           </div>
@@ -56,7 +56,7 @@ function UpdateUser() {
             <label htmlFor="">Age</label>
             <input
               type="text"
-              placeholder="Enter Age"
+              placeholder='Enter Age'
               className="form-control"
             value={age} onChange={(e)=>setAge(e.target.value)}/>
           </div>
